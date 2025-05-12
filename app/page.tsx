@@ -27,11 +27,11 @@ const chatApi = async (message: string, model: string): Promise<string> => {
 		"llama-3.3-70b-versatile",
 		"deepSeek-r1-distill-llama-70b",
 	];
-    let res: Promise<string>;
-	if (model in groqModels) {
+	let res: Promise<string>;
+	if (groqModels.includes(model)) {
+		console.log("call query");
 		res = await queryGroq(message, model);
 	}
-
 	return res;
 };
 

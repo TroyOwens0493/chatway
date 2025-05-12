@@ -6,9 +6,10 @@ const groq = new Groq({ apiKey: groqApiKey });
 const convo: string[] = [];
 
 export async function queryGroq(query: string, model: string): Promise<string> {
+	console.log("querying");
 	convo.push(query);
-    console.log(query);
-    console.log(model);
+	console.log(query);
+	console.log(model);
 	const chatCompletion: Promise<string> = await groq.chat.completions.create({
 		messages: convo,
 		model: model,
